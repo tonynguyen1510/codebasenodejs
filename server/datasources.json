@@ -1,0 +1,51 @@
+{
+	"db": {
+		"name": "db",
+		"connector": "memory"
+	},
+	"mongod": {
+		"host": "127.0.0.1",
+		"port": 27017,
+		"url": "",
+		"database": "IppAdmin",
+		"password": "",
+		"name": "mongod",
+		"user": "ipp",
+		"connector": "mongodb",
+		"allowExtendedOperators": true
+	},
+	"emailDs": {
+		"name": "emailDs",
+		"connector": "mail",
+		"transports": [
+			{
+				"type": "smtp",
+				"host": "smtp.gmail.com",
+				"secure": true,
+				"port": 465,
+				"tls": {
+					"rejectUnauthorized": false
+				},
+				"auth": {
+					"user": "acctualize.info@gmail.com",
+					"pass": "123!@#acctualize"
+				}
+			}
+		]
+	},
+	"storage": {
+		"name": "storage",
+		"connector": "loopback-component-storage",
+		"provider": "amazon",
+		"acl": "public-read",
+		"key": "9194fWU0Sw6FUoSmF2SC2J9fGjJ1Sf8t+ENXHu27",
+		"keyId": "AKIAJL6WV45Z2YDYAB5Q",
+		"maxFileSize": 20971520,
+		"allowedContentTypes": [
+			"image/jpg",
+			"image/jpeg",
+			"image/png",
+			"image/tiff"
+		]
+	}
+}

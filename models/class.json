@@ -1,0 +1,47 @@
+{
+	"name": "Class",
+	"plural": "classes",
+	"base": "PersistedModel",
+	"idInjection": true,
+	"options": {
+		"validateUpsert": true
+	},
+	"scope": {
+		"order": "createdAt DESC"
+	},
+	"properties": {
+		"createdAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"updatedAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"name": {
+			"type": "string"
+		},
+		"desc": {
+			"type": "string"
+		},
+		"status": {
+			"type": "string"
+		}
+	},
+	"validations": [],
+	"relations": {
+		"creator": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "creatorId"
+		},
+		"class": {
+			"type": "hasMany",
+			"model": "Lesson",
+			"foreignKey": "classId",
+			"primaryKey": "id"
+		}
+	},
+	"acls": [],
+	"methods": {}
+}

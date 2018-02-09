@@ -1,0 +1,10 @@
+{
+	"loopback-component-explorer": {
+		"mountPath": "/explorer",
+		"uiDirs": "server/explorer",
+		"apiInfo": {
+			"title": "IPP Admin API",
+			"description": "Copyright © IPP <br /> <a href='/explorer/docs.html'>Document</a>"
+		}
+	}
+}

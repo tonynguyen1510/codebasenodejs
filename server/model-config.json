@@ -1,0 +1,63 @@
+{
+	"_meta": {
+		"sources": [
+			"loopback/common/models",
+			"loopback/server/models",
+			"../common/models",
+			"../models",
+			"./models"
+		],
+		"mixins": [
+			"loopback/common/mixins",
+			"loopback/server/mixins",
+			"../common/mixins",
+			"./mixins"
+		]
+	},
+	"Container": {
+		"dataSource": "storage",
+		"public": true
+	},
+	"Email": {
+		"dataSource": "emailDs"
+	},
+	"User": {
+		"dataSource": "mongod",
+		"public": false
+	},
+	"AccessToken": {
+		"dataSource": "mongod",
+		"public": false
+	},
+	"ACL": {
+		"dataSource": "mongod",
+		"public": false
+	},
+	"RoleMapping": {
+		"dataSource": "mongod",
+		"public": false,
+		"options": {
+			"strictObjectIDCoercion": true
+		}
+	},
+	"Role": {
+		"dataSource": "mongod",
+		"public": false
+	},
+	"user": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Class": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Lesson": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Student": {
+		"dataSource": "mongod",
+		"public": true
+	}
+}
