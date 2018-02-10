@@ -87,33 +87,66 @@ export default function (User) {
 				message: '{{email}} or {{phone}} is required'
 			});
 		}
+
+		user.password = passwordDefault;
+		user.updatedAt = new Date();
+		user.createdAt = new Date();
+
 		next();
 	});
 
-	// User.afterRemote('create', (ctx, user, next) => {
-	// 	sendMailVerify(user, next);
-	// });
+	User.afterRemote('create', (ctx, user, next) => {
+		// sendMailVerify(user, next);
+		User.resetPassword({ email: user.email, invite: true }, (err) => {
+			if (err) {
+				user.updateAttributes({ sentEmailSetPass: false });
+			} else {
+				user.updateAttributes({ sentEmailSetPass: true });
+			}
+			next();
+		});
+	});
 
 	User.login = login;
 
 	// send password reset link when requested
 	User.on('resetPasswordRequest', (info) => {
-		const webUrl = User.app.get('webUrl');
-		const url = webUrl + '/reset-password';
-		const html = 'Click <a href="' + url + '?access_token=' +
-			info.accessToken.id + '">here</a> to reset your password';
+		if (info.options && info.options.invite) {
+			const webUrl = User.app.get('webUrl');
 
-		User.app.models.Email.send({
-			to: info.email,
-			from: 'noreply@bigg.com',
-			subject: 'Password reset',
-			html: html
-		}, (err) => {
-			if (err) {
-				return console.log('> error sending password reset email');
-			}
-			console.log('> sending password reset email to:', info.email);
-		});
+			const url = webUrl + '/login-first';
+			const html = 'Click <a href="' + url + '?access_token=' + info.accessToken.id + '">here</a> to login';
+
+			User.app.models.Email.send({
+				to: info.email,
+				from: 'noreply@bigg.com',
+				subject: 'Login to IPP Admin',
+				html: html
+			}, (err) => {
+				if (err) {
+					info.user.updateAttributes({ sentEmailSetPass: false });
+					return console.log('> error sending invite email');
+				}
+				info.user.updateAttributes({ sentEmailSetPass: true });
+				console.log('> sending invite email to:', info.email);
+			});
+		} else {
+			const webUrl = User.app.get('webUrl');
+			const url = webUrl + '/reset-password';
+			const html = 'Click <a href="' + url + '?access_token=' + info.accessToken.id + '">here</a> to reset your password';
+
+			User.app.models.Email.send({
+				to: info.email,
+				from: 'noreply@bigg.com',
+				subject: 'Password reset',
+				html: html
+			}, (err) => {
+				if (err) {
+					return console.log('> error sending password reset email');
+				}
+				console.log('> sending password reset email to:', info.email);
+			});
+		}
 	});
 }
 

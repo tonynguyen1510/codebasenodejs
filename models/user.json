@@ -18,6 +18,10 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
+		"sentEmailSetPass": {
+			"type": "boolean",
+			"default": false
+		},
 		"status": {
 			"type": "string",
 			"default": "active"
@@ -76,7 +80,7 @@
 		},
 		{
 			"principalType": "ROLE",
-			"principalId": "$everyone",
+			"principalId": "admin",
 			"permission": "ALLOW",
 			"property": "create"
 		},
