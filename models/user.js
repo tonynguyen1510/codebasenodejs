@@ -99,9 +99,9 @@ export default function (User) {
 		// sendMailVerify(user, next);
 		User.resetPassword({ email: user.email, invite: true }, (err) => {
 			if (err) {
-				user.updateAttributes({ sentEmailSetPass: false });
+				user.updateAttributes({ sentEmailInvite: false });
 			} else {
-				user.updateAttributes({ sentEmailSetPass: true });
+				user.updateAttributes({ sentEmailInvite: true });
 			}
 			next();
 		});
@@ -124,10 +124,10 @@ export default function (User) {
 				html: html
 			}, (err) => {
 				if (err) {
-					info.user.updateAttributes({ sentEmailSetPass: false });
+					info.user.updateAttributes({ sentEmailInvite: false });
 					return console.log('> error sending invite email');
 				}
-				info.user.updateAttributes({ sentEmailSetPass: true });
+				info.user.updateAttributes({ sentEmailInvite: true });
 				console.log('> sending invite email to:', info.email);
 			});
 		} else {

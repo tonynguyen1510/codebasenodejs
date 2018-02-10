@@ -18,7 +18,7 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"sentEmailSetPass": {
+		"sentEmailInvite": {
 			"type": "boolean",
 			"default": false
 		},
