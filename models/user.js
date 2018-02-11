@@ -42,41 +42,6 @@ export default function (User) {
 
 	const passwordDefault = 'EAAE8vLtmdZBsBACc5EUHEw4hAAv2aPtmvwdbeYswkA0c88iN0kWcInZCZCZCMakrs3ZAjy';
 
-	const sendMailVerify = (user, next) => {
-		if (!user.email) {
-			return next();
-		}
-
-		const webUrl = User.app.get('webUrl');
-
-		// send mail
-		const options = {
-			type: 'email',
-			host: 'ipp.com',
-			port: 443,
-			to: user.email,
-			from: 'noreply@bigg.com',
-			subject: 'Thanks for registering.',
-			// template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-			redirect: webUrl + '/email-verified',
-			user: user
-		};
-
-		user.verify(options, (err, response) => {
-			if (err) {
-				// User.deleteById(user.id);
-				// return next(err);
-				console.log('err', err);
-			}
-
-			console.log('> verification email sent:', response);
-
-			if (typeof next === 'function') {
-				next();
-			}
-		});
-	};
-
 	User.beforeRemote('create', (ctx, u, next) => {
 		const { data: user = {} } = ctx.args;
 
@@ -107,9 +72,18 @@ export default function (User) {
 		});
 	});
 
-	User.afterRemote('setPassword', (ctx, user, next) => {
-		user.updateAttributes({ status: 'active' });
-		next();
+	User.afterRemote('setPassword', (ctx, opt, next) => {
+		User.findById(ctx.args.options.accessToken.userId, {}, function (err, user) {
+			if (err) {
+				console.log('error', err);
+			} else {
+				if (user && user.status === 'pending') {
+					user.updateAttributes({ status: 'active' });
+				}
+			}
+
+			next();
+		});
 	});
 
 	User.beforeRemote('resetPassword', (ctx, opt, next) => {
@@ -175,5 +149,40 @@ export default function (User) {
 			});
 		}
 	});
+
+	User.resendInvitation = (req, email, next) => {
+		if (!req.accessToken || !req.accessToken.userId) {
+			return next({ error: 'Authorization Required' });
+		}
+
+		User.findById(req.accessToken.userId, { fields: ['id', 'role'] }, (err, u) => {
+			if (err) {
+				return next(err);
+			}
+
+			if (u.role !== 'admin') {
+				return next({ error: 'Permission denied' });
+			}
+
+			User.findOne({ where: { email } }, (errr, user) => {
+				if (errr) {
+					return next(errr);
+				}
+
+				if (user.status !== 'pending') {
+					return next('Invalid user status');
+				}
+
+				User.resetPassword({ email, invite: true }, (error) => {
+					if (error) {
+						user.updateAttributes({ sentEmailInvite: false });
+					} else {
+						user.updateAttributes({ sentEmailInvite: true });
+					}
+					next();
+				});
+			});
+		});
+	};
 }
 

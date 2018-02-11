@@ -170,18 +170,6 @@
 			"principalType": "ROLE",
 			"principalId": "$everyone",
 			"permission": "ALLOW",
-			"property": "loginFacebook"
-		},
-		{
-			"principalType": "ROLE",
-			"principalId": "$everyone",
-			"permission": "ALLOW",
-			"property": "loginGoogle"
-		},
-		{
-			"principalType": "ROLE",
-			"principalId": "$everyone",
-			"permission": "ALLOW",
 			"property": "exists"
 		},
 		{
@@ -195,7 +183,43 @@
 			"principalId": "$everyone",
 			"permission": "ALLOW",
 			"property": "count"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "admin",
+			"permission": "ALLOW",
+			"property": "resendInvitation"
 		}
 	],
-	"methods": {}
+	"methods": {
+		"resendInvitation": {
+			"accepts": [
+				{
+					"arg": "req",
+					"type": "object",
+					"required": true,
+					"http": {
+						"source": "req"
+					}
+				},
+				{
+					"arg": "email",
+					"type": "string",
+					"required": true
+				}
+			],
+			"returns": {
+				"arg": "result",
+				"type": "object",
+				"root": true
+			},
+			"description": "Resend Invitation",
+			"http": [
+				{
+					"path": "/resend-invitation",
+					"verb": "post"
+				}
+			]
+		}
+	}
 }
