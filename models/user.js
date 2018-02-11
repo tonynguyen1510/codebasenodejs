@@ -107,6 +107,33 @@ export default function (User) {
 		});
 	});
 
+	User.afterRemote('setPassword', (ctx, user, next) => {
+		user.updateAttributes({ status: 'active' });
+		next();
+	});
+
+	User.beforeRemote('resetPassword', (ctx, opt, next) => {
+		if (ctx.args.options.email) {
+			User.findOne({ where: { email: ctx.args.options.email }, fields: { status: true } }, function (err, user) {
+				if (err) {
+					return next(err);
+				}
+				if (user && user.status === 'inactive') {
+					return next({
+						code: 'ACCOUNT_DISABLED',
+						message: 'Account has been disabled',
+						name: 'Error',
+						status: 401,
+						statusCode: 401
+					});
+				}
+				return next();
+			});
+		} else {
+			next();
+		}
+	});
+
 	User.login = login;
 
 	// send password reset link when requested

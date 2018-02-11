@@ -7,7 +7,7 @@
 *------------------------------------------------------- */
 
 export default {
-	userStatus: ['active', 'inactive'],
+	userStatus: ['active', 'inactive', 'pending'],
 	userLoginType: ['email', 'phone', 'facebook', 'google'],
 	userRanking: ['new', 'copper', 'silver', 'gold', 'platinum', 'diamond'],
 

@@ -24,7 +24,7 @@
 		},
 		"status": {
 			"type": "string",
-			"default": "active"
+			"default": "pending"
 		},
 		"role": {
 			"type": "string"

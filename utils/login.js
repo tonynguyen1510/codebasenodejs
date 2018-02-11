@@ -147,7 +147,7 @@ export default function (credentials, include, fn) {
 					fn(defaultError);
 				} else if (isMatch) {
 					if (user.status === 'inactive') {
-						defaultError.message = 'Account was blocked';
+						defaultError.message = 'Account has been disabled';
 						return fn(defaultError);
 					}
 

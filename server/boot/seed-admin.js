@@ -14,7 +14,7 @@ export default (app) => {
 	User.find({}, (errCheck, resultsCheck) => {
 		if (resultsCheck.length === 0) {
 			User.create([
-				{ fullName: 'admin', email: 'admin@gmail.com', password: '123456', role: 'admin' }
+				{ fullName: 'admin', email: 'admin@gmail.com', password: '123456', role: 'admin', status: 'active' }
 			], (err, users) => {
 				if (err) {
 					throw err;
