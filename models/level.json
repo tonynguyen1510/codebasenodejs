@@ -1,10 +1,13 @@
 {
-	"name": "Lesson",
-	"plural": "lessons",
+	"name": "Level",
+	"plural": "levels",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
 		"validateUpsert": true
+	},
+	"scope": {
+		"order": "createdAt DESC"
 	},
 	"properties": {
 		"createdAt": {
@@ -18,14 +21,16 @@
 		"name": {
 			"type": "string"
 		},
-		"description": {
-			"type": "string"
-		},
-		"type": {
+		"desc": {
 			"type": "string"
 		},
 		"status": {
-			"type": "string"
+			"type": "string",
+			"defaultFn": "active"
+		},
+		"isDelete": {
+			"type": "Boolean",
+			"defaultFn": false
 		}
 	},
 	"validations": [],
@@ -34,6 +39,11 @@
 			"type": "belongsTo",
 			"model": "user",
 			"foreignKey": "creatorId"
+		},
+		"lesson_contents": {
+			"type": "hasMany",
+			"model": "Lesson_Content",
+			"foreignKey": "levelId"
 		}
 	},
 	"acls": [],

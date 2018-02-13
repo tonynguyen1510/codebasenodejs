@@ -6,6 +6,6 @@
 * Created: 2018-02-09 14:59:59
 *------------------------------------------------------- */
 
-export default function (Class) {
+export default function (Level) {
 
 }

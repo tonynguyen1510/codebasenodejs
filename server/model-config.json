@@ -48,11 +48,11 @@
 		"dataSource": "mongod",
 		"public": true
 	},
-	"Class": {
+	"Level": {
 		"dataSource": "mongod",
 		"public": true
 	},
-	"Lesson": {
+	"Lesson_Content": {
 		"dataSource": "mongod",
 		"public": true
 	},

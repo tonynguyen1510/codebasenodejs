@@ -1,13 +1,10 @@
 {
-	"name": "Class",
-	"plural": "classes",
+	"name": "Lesson_Content",
+	"plural": "lesson_contents",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
 		"validateUpsert": true
-	},
-	"scope": {
-		"order": "createdAt DESC"
 	},
 	"properties": {
 		"createdAt": {
@@ -21,7 +18,10 @@
 		"name": {
 			"type": "string"
 		},
-		"desc": {
+		"description": {
+			"type": "string"
+		},
+		"type": {
 			"type": "string"
 		},
 		"status": {
@@ -35,11 +35,9 @@
 			"model": "user",
 			"foreignKey": "creatorId"
 		},
-		"class": {
-			"type": "hasMany",
-			"model": "Lesson",
-			"foreignKey": "classId",
-			"primaryKey": "id"
+		"level": {
+			"type": "belongsTo",
+			"model": "Level"
 		}
 	},
 	"acls": [],
