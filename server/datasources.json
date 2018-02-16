@@ -4,13 +4,13 @@
 		"connector": "memory"
 	},
 	"mongod": {
-		"host": "127.0.0.1",
-		"port": 27017,
+		"host": "ds225028.mlab.com",
+		"port": 25028,
 		"url": "",
-		"database": "IppAdmin",
-		"password": "",
+		"database": "ipp",
+		"password": "ipp123456",
 		"name": "mongod",
-		"user": "ipp",
+		"user": "ippadmin",
 		"connector": "mongodb",
 		"allowExtendedOperators": true
 	},
