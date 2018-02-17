@@ -59,5 +59,9 @@
 	"Student": {
 		"dataSource": "mongod",
 		"public": true
+	},
+	"Lesson": {
+		"dataSource": "mongod",
+		"public": true
 	}
 }

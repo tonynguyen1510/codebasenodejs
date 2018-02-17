@@ -6,6 +6,6 @@
  * Created: 2018-01-10 23:20:59
  *-------------------------------------------------------*/
 
-export default function (Lesson_Content) {
+export default function (Lesson) {
 
 }

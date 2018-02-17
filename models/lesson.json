@@ -1,0 +1,59 @@
+{
+	"name": "Lesson",
+	"plural": "lessons",
+	"base": "PersistedModel",
+	"idInjection": true,
+	"options": {
+		"validateUpsert": true
+	},
+	"scope": {
+		"order": "createdAt DESC"
+	},
+	"properties": {
+		"createdAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"updatedAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"name": {
+			"type": "string"
+		},
+		"note": {
+			"type": "string"
+		},
+		"status": {
+			"type": "string",
+			"defaultFn": "active"
+		},
+		"isDelete": {
+			"type": "Boolean",
+			"defaultFn": false
+		},
+		"start": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"end": {
+			"type": "date",
+			"defaultFn": "now"
+		}
+	},
+	"validations": [],
+	"relations": {
+		"creator": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "creatorId"
+		},
+		"lesson_content": {
+			"type": "belongsTo",
+			"model": "Lesson_Content",
+			"foreignKey": "lessonContentId"
+		}
+	},
+	"acls": [],
+	"methods": {}
+}
