@@ -1,6 +1,6 @@
 {
-	"name": "Level",
-	"plural": "levels",
+	"name": "StudySessionDetail",
+	"plural": "study-session-details",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
@@ -18,19 +18,11 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"name": {
+		"comment": {
 			"type": "string"
 		},
-		"desc": {
+		"homework": {
 			"type": "string"
-		},
-		"status": {
-			"type": "string",
-			"default": "active"
-		},
-		"isDelete": {
-			"type": "boolean",
-			"default": false
 		}
 	},
 	"validations": [],
@@ -40,10 +32,15 @@
 			"model": "user",
 			"foreignKey": "creatorId"
 		},
-		"lessons": {
-			"type": "hasMany",
-			"model": "Lesson",
-			"foreignKey": "levelId"
+		"session": {
+			"type": "belongsTo",
+			"model": "StudySession",
+			"foreignKey": "sessionId"
+		},
+		"student": {
+			"type": "belongsTo",
+			"model": "Student",
+			"foreignKey": "studentId"
 		}
 	},
 	"acls": [],

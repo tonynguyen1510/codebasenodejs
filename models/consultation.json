@@ -1,6 +1,6 @@
 {
-	"name": "Level",
-	"plural": "levels",
+	"name": "Consultation",
+	"plural": "consultations",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
@@ -18,19 +18,8 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"name": {
+		"content": {
 			"type": "string"
-		},
-		"desc": {
-			"type": "string"
-		},
-		"status": {
-			"type": "string",
-			"default": "active"
-		},
-		"isDelete": {
-			"type": "boolean",
-			"default": false
 		}
 	},
 	"validations": [],
@@ -40,10 +29,10 @@
 			"model": "user",
 			"foreignKey": "creatorId"
 		},
-		"lessons": {
-			"type": "hasMany",
-			"model": "Lesson",
-			"foreignKey": "levelId"
+		"student": {
+			"type": "belongsTo",
+			"model": "Student",
+			"foreignKey": "studentId"
 		}
 	},
 	"acls": [],

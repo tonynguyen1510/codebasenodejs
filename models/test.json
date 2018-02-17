@@ -1,6 +1,6 @@
 {
-	"name": "Level",
-	"plural": "levels",
+	"name": "Test",
+	"plural": "tests",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
@@ -18,19 +18,18 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"name": {
+		"startDate": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"endDate": {
+			"type": "date"
+		},
+		"content": {
 			"type": "string"
 		},
-		"desc": {
+		"note": {
 			"type": "string"
-		},
-		"status": {
-			"type": "string",
-			"default": "active"
-		},
-		"isDelete": {
-			"type": "boolean",
-			"default": false
 		}
 	},
 	"validations": [],
@@ -40,10 +39,10 @@
 			"model": "user",
 			"foreignKey": "creatorId"
 		},
-		"lessons": {
+		"details": {
 			"type": "hasMany",
-			"model": "Lesson",
-			"foreignKey": "levelId"
+			"model": "TestDetail",
+			"foreignKey": "testId"
 		}
 	},
 	"acls": [],

@@ -43,15 +43,28 @@
 			"type": "date"
 		},
 		"phone": {
-			"type": [ "string" ],
+			"type": "string",
+			"index": {
+				"unique": true
+			}
+		},
+		"phone2": {
+			"type": "string",
 			"index": {
 				"unique": true
 			}
 		},
 		"email": {
-			"type": "string"
+			"type": "string",
+			"index": {
+				"unique": true
+			}
 		},
 		"address": {
+			"type": "string",
+			"index": true
+		},
+		"branch": {
 			"type": "string",
 			"index": true
 		},

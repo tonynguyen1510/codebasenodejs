@@ -1,10 +1,13 @@
 {
-	"name": "Lesson_Content",
-	"plural": "lesson_contents",
+	"name": "StudySession",
+	"plural": "study-sessions",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
 		"validateUpsert": true
+	},
+	"scope": {
+		"order": "createdAt DESC"
 	},
 	"properties": {
 		"createdAt": {
@@ -15,16 +18,17 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"name": {
+		"startDate": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"endDate": {
+			"type": "date"
+		},
+		"content": {
 			"type": "string"
 		},
-		"description": {
-			"type": "string"
-		},
-		"type": {
-			"type": "string"
-		},
-		"status": {
+		"note": {
 			"type": "string"
 		}
 	},
@@ -35,9 +39,15 @@
 			"model": "user",
 			"foreignKey": "creatorId"
 		},
-		"level": {
+		"lesson": {
 			"type": "belongsTo",
-			"model": "Level"
+			"model": "Lesson",
+			"foreignKey": "lessonId"
+		},
+		"details": {
+			"type": "hasMany",
+			"model": "StudySessionDetail",
+			"foreignKey": "sessionId"
 		}
 	},
 	"acls": [],

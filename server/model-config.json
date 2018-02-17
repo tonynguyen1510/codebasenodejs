@@ -52,7 +52,35 @@
 		"dataSource": "mongod",
 		"public": true
 	},
-	"Lesson_Content": {
+	"Lesson": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Consultation": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Payment": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"StudySession": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"StudySessionDetail": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Test": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"TestDetail": {
+		"dataSource": "mongod",
+		"public": true
+	},
+	"Tracking": {
 		"dataSource": "mongod",
 		"public": true
 	},

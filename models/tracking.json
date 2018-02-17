@@ -1,0 +1,69 @@
+{
+	"name": "Tracking",
+	"plural": "trackings",
+	"base": "PersistedModel",
+	"idInjection": true,
+	"options": {
+		"validateUpsert": true
+	},
+	"scope": {
+		"order": "createdAt DESC"
+	},
+	"properties": {
+		"createdAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"content": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string"
+		}
+	},
+	"validations": [],
+	"relations": {
+		"creator": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "creatorId"
+		},
+		"student": {
+			"type": "belongsTo",
+			"model": "Student",
+			"foreignKey": "studentId"
+		},
+		"lesson": {
+			"type": "belongsTo",
+			"model": "Lesson",
+			"foreignKey": "lessonId"
+		},
+		"level": {
+			"type": "belongsTo",
+			"model": "Level",
+			"foreignKey": "levelId"
+		},
+		"payment": {
+			"type": "belongsTo",
+			"model": "Payment",
+			"foreignKey": "paymentId"
+		},
+		"test": {
+			"type": "belongsTo",
+			"model": "Test",
+			"foreignKey": "testId"
+		},
+		"session": {
+			"type": "belongsTo",
+			"model": "StudySession",
+			"foreignKey": "sessionId"
+		},
+		"consultation": {
+			"type": "belongsTo",
+			"model": "Consultation",
+			"foreignKey": "consultationId"
+		}
+	},
+	"acls": [],
+	"methods": {}
+}

@@ -1,0 +1,76 @@
+{
+	"name": "Payment",
+	"plural": "payments",
+	"base": "PersistedModel",
+	"idInjection": true,
+	"options": {
+		"validateUpsert": true
+	},
+	"scope": {
+		"order": "createdAt DESC"
+	},
+	"properties": {
+		"createdAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"updatedAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"startDate": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"endDate": {
+			"type": "date"
+		},
+		"content": {
+			"type": "string"
+		},
+		"conservation": {
+			"type": "boolean",
+			"default": false
+		},
+		"conservationDate": {
+			"type": {
+				"start": {
+					"type": "date"
+				},
+				"end": {
+					"type": "date"
+				}
+			}
+		},
+		"numOfLesson": {
+			"type": "number"
+		},
+		"restOfLesson": {
+			"type": "number"
+		},
+		"unitPrice": {
+			"type": "number"
+		},
+		"discount": {
+			"type": "number"
+		},
+		"total": {
+			"type": "number"
+		}
+	},
+	"validations": [],
+	"relations": {
+		"creator": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "creatorId"
+		},
+		"student": {
+			"type": "belongsTo",
+			"model": "Student",
+			"foreignKey": "studentId"
+		}
+	},
+	"acls": [],
+	"methods": {}
+}

@@ -20,7 +20,7 @@
 		},
 		"status": {
 			"type": "string",
-			"default": "active"
+			"default": "inquiring"
 		},
 		"avatar": {
 			"type": "string"
@@ -36,15 +36,34 @@
 			"type": "date"
 		},
 		"phone": {
-			"type": [ "string" ],
+			"type": "string",
+			"index": {
+				"unique": true
+			}
+		},
+		"phone2": {
+			"type": "string",
 			"index": {
 				"unique": true
 			}
 		},
 		"email": {
-			"type": [ "string" ]
+			"type": "string",
+			"index": {
+				"unique": true
+			}
+		},
+		"email2": {
+			"type": "string",
+			"index": {
+				"unique": true
+			}
 		},
 		"address": {
+			"type": "string",
+			"index": true
+		},
+		"branch": {
 			"type": "string",
 			"index": true
 		},
@@ -77,7 +96,19 @@
 		}
 	},
 	"validations": [],
-	"relations": {},
+	"relations": {
+		"creator": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "creatorId"
+		},
+		"level": {
+			"type": "belongsTo",
+			"model": "Level",
+			"foreignKey": "levelName",
+			"primaryKey": "name"
+		}
+	},
 	"acls": [
 		{
 			"principalType": "ROLE",

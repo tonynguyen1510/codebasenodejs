@@ -32,6 +32,8 @@ import predefined from '../constant/predefined';
 export default function (User) {
 	User.validatesInclusionOf('status', { in: predefined.userStatus });
 	User.validatesUniquenessOf('phone');
+	User.validatesUniquenessOf('phone2');
+	User.validatesUniquenessOf('email2');
 
 
 	// User.disableRemoteMethod('create', true);

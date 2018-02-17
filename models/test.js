@@ -3,9 +3,9 @@
 * Email ductienas@gmail.com
 * Phone 0972970075
 *
-* Created: 2018-02-09 15:00:04
+* Created: 2018-02-15 14:20:39
 *------------------------------------------------------- */
 
-export default function (Lesson_Content) {
+export default function (/* Test */) {
 
 }
