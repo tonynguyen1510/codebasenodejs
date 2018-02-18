@@ -6,6 +6,9 @@
 	"options": {
 		"validateUpsert": true
 	},
+	"scope": {
+		"order": "createdAt DESC"
+	},
 	"properties": {
 		"createdAt": {
 			"type": "date",
@@ -21,16 +24,13 @@
 		"desc": {
 			"type": "string"
 		},
-		"type": {
-			"type": "string"
-		},
 		"status": {
 			"type": "string",
-			"defaultFn": "active"
+			"default": "active"
 		},
 		"isDelete": {
 			"type": "boolean",
-			"defaultFn": false
+			"default": false
 		},
 		"reference": {
 			"type": ["string"]
@@ -49,7 +49,8 @@
 		"level": {
 			"type": "belongsTo",
 			"model": "Level",
-			"foreignKey": "levelId"
+			"foreignKey": "levelName",
+			"primaryKey": "name"
 		}
 	},
 	"acls": [],
