@@ -1,10 +1,10 @@
-/* --------------------------------------------------------
-* Author Trần Đức Tiến
-* Email ductienas@gmail.com
-* Phone 0972970075
-*
-* Created: 2018-02-09 14:59:59
-*------------------------------------------------------- */
+/*--------------------------------------------------------
+ * Author Ngo An Ninh
+ * Email ninh.uit@gmail.com
+ * Phone 0978 108 807
+ *
+ * Created: 2018-01-10 23:20:59
+ *-------------------------------------------------------*/
 
 export default function (Level) {
 	Level.validatesUniquenessOf('name');
