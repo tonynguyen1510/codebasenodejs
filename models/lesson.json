@@ -33,10 +33,10 @@
 			"default": false
 		},
 		"reference": {
-			"type": ["string"]
+			"type": "string"
 		},
 		"homework": {
-			"type": ["string"]
+			"type": "string"
 		}
 	},
 	"validations": [],
