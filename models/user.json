@@ -84,7 +84,13 @@
 		}
 	},
 	"validations": [],
-	"relations": {},
+	"relations": {
+		"creator": {
+			"type": "belongsTo",
+			"model": "user",
+			"foreignKey": "creatorId"
+		}
+	},
 	"acls": [
 		{
 			"principalType": "ROLE",

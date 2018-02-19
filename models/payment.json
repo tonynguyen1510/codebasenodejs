@@ -28,7 +28,14 @@
 		"content": {
 			"type": "string"
 		},
-		"conservation": {
+		"note": {
+			"type": "string"
+		},
+		"status": {
+			"type": "string",
+			"default": "active"
+		},
+		"isDelete": {
 			"type": "boolean",
 			"default": false
 		},
@@ -42,10 +49,10 @@
 				}
 			}
 		},
-		"numOfLesson": {
+		"quantity": {
 			"type": "number"
 		},
-		"restOfLesson": {
+		"rest": {
 			"type": "number"
 		},
 		"unitPrice": {
