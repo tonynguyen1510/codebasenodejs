@@ -18,13 +18,6 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"startDate": {
-			"type": "date",
-			"defaultFn": "now"
-		},
-		"endDate": {
-			"type": "date"
-		},
 		"content": {
 			"type": "string"
 		},
@@ -42,7 +35,19 @@
 		"conservationDate": {
 			"type": {
 				"start": {
+					"type": "date",
+					"defaultFn": "now"
+				},
+				"end": {
 					"type": "date"
+				}
+			}
+		},
+		"expiredDate": {
+			"type": {
+				"start": {
+					"type": "date",
+					"defaultFn": "now"
 				},
 				"end": {
 					"type": "date"
