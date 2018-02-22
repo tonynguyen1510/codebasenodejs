@@ -72,11 +72,11 @@
 		"dataSource": "mongod",
 		"public": true
 	},
-	"Test": {
+	"Testing": {
 		"dataSource": "mongod",
 		"public": true
 	},
-	"TestDetail": {
+	"TestingDetail": {
 		"dataSource": "mongod",
 		"public": true
 	},
@@ -85,10 +85,6 @@
 		"public": true
 	},
 	"Student": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Lesson": {
 		"dataSource": "mongod",
 		"public": true
 	}

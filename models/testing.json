@@ -1,6 +1,6 @@
 {
-	"name": "Test",
-	"plural": "tests",
+	"name": "Testing",
+	"plural": "testings",
 	"base": "PersistedModel",
 	"idInjection": true,
 	"options": {
@@ -18,11 +18,10 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"startDate": {
-			"type": "date",
-			"defaultFn": "now"
+		"startTime": {
+			"type": "date"
 		},
-		"endDate": {
+		"endTime": {
 			"type": "date"
 		},
 		"content": {
@@ -31,6 +30,9 @@
 		"isDelete": {
 			"type": "boolean",
 			"default": false
+		},
+		"branch": {
+			"type": "string"
 		},
 		"note": {
 			"type": "string"
@@ -42,6 +44,12 @@
 			"type": "belongsTo",
 			"model": "user",
 			"foreignKey": "creatorId"
+		},
+		"level": {
+			"type": "belongsTo",
+			"model": "Level",
+			"foreignKey": "levelName",
+			"primaryKey": "name"
 		},
 		"details": {
 			"type": "hasMany",

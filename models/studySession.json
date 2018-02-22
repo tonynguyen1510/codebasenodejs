@@ -35,6 +35,9 @@
 			"type": "boolean",
 			"default": false
 		},
+		"branch": {
+			"type": "string"
+		},
 		"note": {
 			"type": "string"
 		}
