@@ -18,6 +18,13 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
+		"branch": {
+			"type": "string"
+		},
+		"isDelete": {
+			"type": "boolean",
+			"default": false
+		},
 		"content": {
 			"type": "string"
 		}

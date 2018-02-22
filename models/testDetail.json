@@ -21,6 +21,10 @@
 		"comment": {
 			"type": "string"
 		},
+		"isDelete": {
+			"type": "boolean",
+			"default": false
+		},
 		"result": {
 			"type": "number"
 		}

@@ -18,15 +18,22 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
-		"startDate": {
-			"type": "date",
-			"defaultFn": "now"
-		},
-		"endDate": {
+		"startTime": {
 			"type": "date"
 		},
-		"content": {
-			"type": "string"
+		"endTime": {
+			"type": "date"
+		},
+		"status": {
+			"type": "string",
+			"default": "live"
+		},
+		"lessonData": {
+			"type": "object"
+		},
+		"isDelete": {
+			"type": "boolean",
+			"default": false
 		},
 		"note": {
 			"type": "string"
@@ -43,6 +50,12 @@
 			"type": "belongsTo",
 			"model": "Lesson",
 			"foreignKey": "lessonId"
+		},
+		"level": {
+			"type": "belongsTo",
+			"model": "Level",
+			"foreignKey": "levelName",
+			"primaryKey": "name"
 		},
 		"details": {
 			"type": "hasMany",

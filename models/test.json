@@ -28,6 +28,10 @@
 		"content": {
 			"type": "string"
 		},
+		"isDelete": {
+			"type": "boolean",
+			"default": false
+		},
 		"note": {
 			"type": "string"
 		}

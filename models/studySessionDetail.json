@@ -18,11 +18,19 @@
 			"type": "date",
 			"defaultFn": "now"
 		},
+		"studentData": {
+			"type": "object"
+		},
 		"comment": {
 			"type": "string"
 		},
+		"isDelete": {
+			"type": "boolean",
+			"default": false
+		},
 		"homework": {
-			"type": "string"
+			"type": "string",
+			"default": "done"
 		}
 	},
 	"validations": [],
