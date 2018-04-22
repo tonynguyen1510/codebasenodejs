@@ -47,45 +47,5 @@
 	"user": {
 		"dataSource": "mongod",
 		"public": true
-	},
-	"Level": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Lesson": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Consultation": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Payment": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"StudySession": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"StudySessionDetail": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Testing": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"TestingDetail": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Tracking": {
-		"dataSource": "mongod",
-		"public": true
-	},
-	"Student": {
-		"dataSource": "mongod",
-		"public": true
 	}
 }
