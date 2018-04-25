@@ -1,0 +1,75 @@
+{
+	"name": "note",
+	"base": "PersistedModel",
+	"idInjection": true,
+	"options": {
+		"validateUpsert": false
+	},
+	"scope": {
+		"order": "created DESC"
+	},
+	"properties": {
+		"language": {
+			"type": "string",
+			"index": true,
+			"length": 255
+		},
+		"content": {
+			"type": "text"
+		},
+		"keyword": {
+			"type": "string",
+			"index": true,
+			"length": 255
+		},
+		"name": {
+			"type": "string",
+			"index": true,
+			"length": 255
+		},
+		"description": {
+			"type": "string"
+		},
+		"modified": {
+			"type": "Number"
+		},
+		"createdAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"updatedAt": {
+			"type": "date",
+			"defaultFn": "now"
+		},
+		"created": {
+			"type": "Number"
+		},
+		"isDelete": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"validations": [],
+	"relations": {
+		"client": {
+			"type": "belongsTo",
+			"model": "User",
+			"foreignKey": "creatorId"
+		}
+	},
+	"acls": [
+		{
+			"accessType": "*",
+			"principalType": "ROLE",
+			"principalId": "$unauthenticated",
+			"permission": "DENY"
+		},
+		{
+			"accessType": "*",
+			"principalType": "ROLE",
+			"principalId": "$authenticated",
+			"permission": "ALLOW"
+		}
+	],
+	"methods": {}
+}

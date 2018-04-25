@@ -47,5 +47,9 @@
 	"user": {
 		"dataSource": "mongod",
 		"public": true
+	},
+	"note": {
+		"dataSource": "mongod",
+		"public": true
 	}
 }

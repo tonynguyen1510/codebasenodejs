@@ -4,15 +4,13 @@
 		"connector": "memory"
 	},
 	"mongod": {
-		"host": "127.0.0.1",
-		"port": 27017,
-		"url": "",
-		"database": "IppAdmin",
-		"password": "",
-		"name": "mongod",
-		"user": "ipp",
-		"connector": "mongodb",
-		"allowExtendedOperators": true
+		"host": "ds145302.mlab.com",
+		"port": 45302,
+		"database": "mynoteapp",
+		"username": "ninh",
+		"password": "ninh123456",
+		"name": "mongoDs",
+		"connector": "mongodb"
 	},
 	"emailDs": {
 		"name": "emailDs",
