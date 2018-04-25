@@ -1,7 +1,7 @@
 {
 	"restApiRoot": "/api/v1",
 	"host": "0.0.0.0",
-	"port": 3005,
+	"port": 4005,
 	"webUrl": "http://localhost:3333",
 	"apiUrl": "http://localhost:3005",
 	"remoting": {
